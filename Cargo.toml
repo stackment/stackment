@@ -1,0 +1,12 @@
+[workspace]
+members = [
+	"core/proto",
+	"core/inventory",
+	"cli",
+	"tui",
+	"tools/certutil",
+	"services/discovery",
+	"services/relay",
+	"services/hub"
+]
+

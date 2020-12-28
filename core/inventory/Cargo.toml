@@ -1,0 +1,39 @@
+[package]
+name = "smtinventory"
+version = "0.1.0"
+authors = ["Daniel Vogelbacher <daniel@chaospixel.com>"]
+edition = "2018"
+
+
+# [lib]
+# name = "stackment_engine"
+# crate-type = ["rlib", "cdylib", "staticlib"]
+
+[dependencies]
+log = "0.4"
+rusqlite = { version = "0.20.0", features = ["bundled", "functions", "chrono"] }
+uuid = { version = "0.7", features = ["serde", "v4"] }
+dirs = "2.0.2"
+rust-ini = "0.13.0"
+rand = "0.7.0"
+libc = "0.2.0"
+failure = "0.1.5"
+failure_derive = "0.1.5"
+serde = { version = "1.0.102", features = ["derive"] }
+serde_json = "1.0.41"
+chrono = { version = "0.4.9", features = ["serde"] }
+tempfile = "3"
+tokio = { version = "0.2.21", features = ["full"] }
+tokio-util = { version = "0.3", features = ["codec", "udp"] }
+futures = "0.3.1"
+bytes = { version = "0.5", features = [] }
+serde_cbor = "0.11.1"
+ring = "0.16.9"
+snow = { version = "0.6.2", features = ["ring-accelerated"] }
+x25519-dalek = "0.6.0"
+yasna = { version = "0.3.1", features = ["chrono"] }
+data-encoding = "2.1.2"
+socket2 = "0.3.11"
+luhn = "1.0.0"
+lazy_static = "1.4.0"
+

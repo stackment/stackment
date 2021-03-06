@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: "rust:cargo"
+    directory: "/"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "rust:cargo"
+    directory: "/app/skmtdart/"
+    schedule:
+      interval: "daily"
+
+
+  - package-ecosystem: "java:gradle"
+    directory: "/pp/skmtapp/android"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "java:gradle"
+    directory: "/pp/skmtdart/android"
+    schedule:
+      interval: "daily"
+

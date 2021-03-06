@@ -1,0 +1,33 @@
+name: Build
+on: [pull_request, push]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Install deps
+        run: sudo apt-get update && sudo apt-get install libclang-dev
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
+      - run: cargo install cargo-make
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.0.x'
+          channel: 'beta'
+      - run: dart --version
+      - run: flutter --version
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Build the app
+        run: make android-debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: skmtapp-android-debug.apk
+          path: 'app/skmtapp/build/app/outputs/flutter-apk/app-debug.apk'
+
